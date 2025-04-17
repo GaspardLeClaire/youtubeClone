@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()"
+    class="lg:w-2/6 md:w-1/2 w-full mx-auto bg-gray-100 rounded-lg p-8 flex flex-col mt-10">
+
+    <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Connexion</h2>
+
+    <div class="relative mb-4">
+        <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+        <input type="email" formControlName="email"
+            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+
+    <div class="relative mb-4">
+        <label for="email" class="leading-7 text-sm text-gray-600">Mot de passe</label>
+        <input type="password" formControlName="password"
+            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+
+    <button
+        class="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Se connecter</button>
+    <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">Vous n'avez pas de compte ? <a [routerLink]="['/auth/signup']" routerLinkActive="router-link-active"  class="font-medium text-blue-600 hover:underline dark:text-blue-500">s'inscrire</a>.</p>
+
+</form>
