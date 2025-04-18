@@ -24,9 +24,7 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
-      this.authService.login(email, password);
-      console.log('submit valid');
-      
+      this.authService.login(email, password);      
       this.router.navigate(['']);
     }
   }

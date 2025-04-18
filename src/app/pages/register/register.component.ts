@@ -18,8 +18,7 @@ export class RegisterComponent {
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {
-  }
+  ) {}
 
   onSubmit() {
     if (this.registerForm.valid) {

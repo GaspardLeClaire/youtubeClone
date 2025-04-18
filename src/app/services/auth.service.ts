@@ -17,15 +17,19 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
+
+
     const user:User|null= this.localeStorage.getUser(email,password)
-    sessionStorage.setItem('currentUser', JSON.stringify({id:user?.id, username: user?.username, email:user?.email}));
-    this.currentUserSubject.next(user);
+    //TODO créer un validator pour vérifier les infos renseigné
+    if(user != null){
+      sessionStorage.setItem('currentUser', JSON.stringify(user));
+      this.currentUserSubject.next(user);
+    }
     return user;
   }
 
   logout() {
     sessionStorage.removeItem('currentUser');
-    // Met à jour le currentUserSubject avec null (BehaviorSubject)
     this.currentUserSubject.next(null);
   }
 

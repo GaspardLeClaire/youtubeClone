@@ -1,1 +1,30 @@
-<p>search-page works!</p>
+<div class="flex md:flex-nowrap flex-wrap justify-center items-end ">
+    <div class="relative sm:w-64 w-40 sm:mr-4 mr-2">
+        <label for="footer-field" class="leading-7 text-sm text-gray-600">Rechercher :</label>
+        <input type="text" id="footer-field" name="footer-field" #search
+            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-red-200 focus:border-red-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+    <button type="submit" (click)="rechercher(search.value)"
+        class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Rechercher</button>
+</div>
+
+<div class="ml-64 p-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        @for (video of videos; track video.id) {
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <img [src]="video.url" alt="{{ video.title }}" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2 truncate">{{ video.title }}</h2>
+                <!--<p class="text-gray-600 text-sm line-clamp-3">{{ video.description }}</p>-->
+                <button></button>
+            </div>
+        </div>
+        }
+        @empty {
+        <div class="col-span-full text-center text-gray-500 text-lg">
+            Aucune vidéo retournée...
+        </div>
+        }
+    </div>
+</div>
+
